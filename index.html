@@ -10,35 +10,14 @@
     <div class="container">
         <div class="header-bar">
             <h1>মাসিক মিল ম্যানেজমেন্ট সিস্টেম</h1>
-            <button id="printBtn" class="no-print">প্রিন্ট করুন</button>
-        </div>
-
-        <!-- Forms Container - Hidden on Print -->
-        <div class="forms-container no-print">
-            <!-- Form Sections remain the same -->
-             <div class="form-section">
-                <h2>সদস্য যোগ/টাকা জমা করুন</h2>
-                <form id="addMemberForm">
-                    <div class="autocomplete-container">
-                        <input type="text" id="memberNameInput" placeholder="সদস্যের নাম" required autocomplete="off">
-                        <div class="autocomplete-suggestions" id="nameSuggestions"></div>
-                    </div>
-                    <input type="number" id="depositAmount" placeholder="টাকার পরিমাণ (যেমন: 500 বা -100)" required>
-                    <button type="submit">জমা করুন</button>
-                </form>
-            </div>
-            <div class="form-section">
-                <h2>নতুন খরচ যোগ করুন</h2>
-                <form id="addExpenseForm">
-                    <input type="date" id="expenseDate" required>
-                    <input type="text" id="expenseCategory" placeholder="খরচের খাত" required>
-                    <input type="number" id="expenseAmount" placeholder="টাকা" required>
-                    <button type="submit">খরচ যোগ করুন</button>
-                </form>
+            <div class="header-buttons no-print">
+                <button id="printBtn">প্রিন্ট করুন</button>
+                <button id="resetAllDataBtn" class="remove-btn">সকল ডেটা মুছুন</button>
             </div>
         </div>
 
-        <!-- Sections remain the same -->
+        <!-- The rest of the HTML structure remains the same -->
+        <div class="forms-container no-print"> <div class="form-section"> <h2>সদস্য যোগ/টাকা জমা করুন</h2> <form id="addMemberForm"> <div class="autocomplete-container"> <input type="text" id="memberNameInput" placeholder="সদস্যের নাম" required autocomplete="off"> <div class="autocomplete-suggestions" id="nameSuggestions"></div> </div> <input type="number" id="depositAmount" placeholder="টাকার পরিমাণ (যেমন: 500 বা -100)" required> <button type="submit">জমা করুন</button> </form> </div> <div class="form-section"> <h2>নতুন খরচ যোগ করুন</h2> <form id="addExpenseForm"> <input type="date" id="expenseDate" required> <input type="text" id="expenseCategory" placeholder="খরচের খাত" required> <input type="number" id="expenseAmount" placeholder="টাকা" required> <button type="submit">খরচ যোগ করুন</button> </form> </div> </div>
         <div class="section"> <h2>সদস্যদের তালিকা</h2> <div class="table-container"> <table id="membersTable"> <thead> <tr> <th>সদস্যের নাম</th> <th>জমাকৃত টাকার হিসাব</th> <th>মোট জমা</th> <th class="no-print">অপসারণ</th> </tr> </thead> <tbody id="membersTableBody"></tbody> </table> </div> </div>
         <div class="section"> <div class="meal-header"> <h2>মিল ব্যবস্থাপনা</h2> <div> <input type="month" id="monthSelector" class="no-print"> <button id="showDailyMealModalBtn" class="no-print">দৈনিক মিল যোগ করুন</button> </div> </div> <div class="table-container"> <table id="mealTable"> <thead id="mealTableHeader"></thead> <tbody id="mealTableBody"></tbody> </table> </div> </div>
         <div class="section"> <h2>খরচের তালিকা</h2> <div class="table-container"> <table id="expenseTable"> <thead> <tr> <th>তারিখ</th> <th>খরচের খাত</th> <th>টাকা</th> </tr> </thead> <tbody id="expenseTableBody"></tbody> </table> </div> </div>
@@ -46,43 +25,7 @@
         <div class="section"> <h2>মাসিক সারসংক্ষেপ</h2> <div id="summary"> <p>মোট খরচ: <span id="totalExpense">0</span> টাকা</p> <p>মোট মিল: <span id="totalMeals">0</span></p> <p>প্রতি মিল রেট: <span id="mealRate">0.00</span> টাকা</p> </div> </div>
     </div>
 
-    <!-- Daily Meal Entry Modal -->
-    <div id="dailyMealModal" class="modal no-print">
-        <div class="modal-content">
-            <span class="close-btn">×</span>
-            <h2>দৈনিক মিল এন্ট্রি</h2>
-            <input type="date" id="dailyMealDate">
-            
-            <div id="bulk-meal-container">
-                <input type="number" id="bulkMealAmount" placeholder="মিল সংখ্যা" min="0">
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="bulkMealBreakfast"> সকাল</label>
-                    <label><input type="checkbox" id="bulkMealLunch"> দুপুর</label>
-                    <label><input type="checkbox" id="bulkMealDinner"> রাত</label>
-                </div>
-                <button id="applyBulkMealBtn">প্রয়োগ করুন</button>
-            </div>
-            
-            <div class="table-container">
-                <table id="dailyMealTable">
-                    <thead>
-                        <tr>
-                            <th>সদস্যের নাম</th>
-                            <th>সকাল</th>
-                            <th>দুপুর</th>
-                            <th>রাত</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dailyMealTableBody"></tbody>
-                </table>
-            </div>
-
-            <div class="modal-actions">
-                <button id="saveDailyMealsBtn">সংরক্ষণ করুন</button>
-                <button id="clearDailyMealsBtn" class="remove-btn">এই দিনের মিল মুছুন</button>
-            </div>
-        </div>
-    </div>
+    <div id="dailyMealModal" class="modal no-print"> <div class="modal-content"> <span class="close-btn">×</span> <h2>দৈনিক মিল এন্ট্রি</h2> <input type="date" id="dailyMealDate"> <div id="bulk-meal-container"> <input type="number" id="bulkMealAmount" placeholder="মিল সংখ্যা" min="0"> <div class="checkbox-group"> <label><input type="checkbox" id="bulkMealBreakfast"> সকাল</label> <label><input type="checkbox" id="bulkMealLunch"> দুপুর</label> <label><input type="checkbox" id="bulkMealDinner"> রাত</label> </div> <button id="applyBulkMealBtn">প্রয়োগ করুন</button> </div> <div class="table-container"> <table id="dailyMealTable"> <thead> <tr> <th>সদস্যের নাম</th> <th>সকাল</th> <th>দুপুর</th> <th>রাত</th> </tr> </thead> <tbody id="dailyMealTableBody"></tbody> </table> </div> <div class="modal-actions"> <button id="saveDailyMealsBtn">সংরক্ষণ করুন</button> <button id="clearDailyMealsBtn" class="remove-btn">এই দিনের মিল মুছুন</button> </div> </div> </div>
 
     <script src="script.js"></script>
 </body>

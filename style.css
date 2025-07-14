@@ -3,13 +3,8 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 .container { width: 95%; margin: auto; overflow: hidden; padding: 10px; }
 h1 { font-size: 1.8em; }
 h2 { text-align: center; color: #0056b3; margin-bottom: 20px; }
-.header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
+.header-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+.header-buttons { display: flex; gap: 10px; } /* New style for button grouping */
 .section { background: #fff; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 .forms-container { display: flex; gap: 20px; flex-wrap: wrap; }
 .form-section { flex: 1; min-width: 300px; }
@@ -41,15 +36,11 @@ button:hover { background-color: #218838; }
 #bulk-meal-container input[type="number"] { width: 100px; flex-grow: 1; }
 #bulk-meal-container .checkbox-group { display: flex; gap: 15px; flex-grow: 2; }
 #bulk-meal-container button { padding: 8px 12px; font-size: 0.9em; flex-grow: 1; }
-.modal-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    justify-content: flex-end;
-}
+.modal-actions { display: flex; gap: 15px; margin-top: 20px; justify-content: flex-end; }
 
 @media (max-width: 768px) {
-    .header-bar { flex-direction: column; align-items: flex-start; }
+    .header-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .header-buttons { width: 100%; display: flex; flex-direction: column; }
     h1 { font-size: 1.5em; }
     .meal-header { flex-direction: column; align-items: stretch; }
     .meal-header > div { display: flex; flex-direction: column; gap: 10px; }
